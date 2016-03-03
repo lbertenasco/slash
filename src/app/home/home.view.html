@@ -1,0 +1,8 @@
+<div class="cards clearfix">
+  <div class="addNew" (click)="addRandomCard()">
+    Add new card
+  </div>
+  <div class="row">
+    <card-renderer *ngFor="#card of cards$ | async" [card]="card"></card-renderer>
+  </div>
+</div>

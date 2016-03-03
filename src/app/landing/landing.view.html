@@ -1,0 +1,20 @@
+<div class="landing clearfix">
+  <div class="title">
+    <h3>Trendings asd test</h3>
+  </div>
+  <div class="trendings row" >
+    <div class="card col s6 m3" *ngFor="#trending of trendings$ | async">
+      <!--div class="card-image">
+        <img src="{{trending.pic}}">
+        <span class="card-title">{{trending.name}}</span>
+      </div-->
+      <div class="card-content">
+        <span class="card-title">{{trending.name}}</span>
+        <p>hype: {{trending.hype}}</p>
+      </div>
+      <div class="card-action">
+        <a (click)="selectSlash(trending)">Enter slash</a>
+      </div>
+    </div>
+  </div>
+</div>

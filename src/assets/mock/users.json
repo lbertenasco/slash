@@ -1,0 +1,8 @@
+{
+  "users": [
+    {"nick": "sebastiangiro", "id": 1, "name": "Sebastian Giro", pic: "https://scontent-gru2-1.xx.fbcdn.net/hprofile-xaf1/v/t1.0-1/c0.0.320.320/p320x320/1656392_416328505136710_1126641184_n.jpg?oh=d4ba1efe28dfacbef69893373a2613ee&oe=575AFCBD"},
+    {"nick": "luberte", "id": 2, "name": "Luciano Bertenasco"},
+    {"nick": "test", "id": 3, "name": "test 1"},
+    {"nick": "test2", "id": 4, "name": "test 2"},
+  ]
+}
