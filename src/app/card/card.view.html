@@ -6,12 +6,17 @@
     </div>
     <div class="card-content">
       <p>{{card.text}}</p>
+      <span *ngIf="card.likes">Kudos: {{card.likes}}</span>
     </div>
     <div class="card-action">
       <!--a href="#">This is a link</a-->
       <p>
         <a class="btn btn-primary" role="button">Does Nothing</a>
-        <a class="btn btn-danger"  role="button" (click)="removeCard(card)">DELETE</a>
+        <a sl-kudos (animation)="animate = $event" (kudos)="likeCard(card)"
+          (click)="likeCard(card)" [class.animate]="animate"
+          role="button" class="sl-kudos btn-floating pink lighten-2 waves-effect waves-light">
+          <i class="tiny material-icons">thumb_up</i></a>
+          <!-- We need a Heart icon Material Icons are Heartless -->
       </p>
     </div>
   </div>

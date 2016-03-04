@@ -9,7 +9,7 @@ import {NavigationService} from './navigation.service';
   outputs: [ 'results' ]
 })
 
-export class NavigationSearch {
+export class NavigationSearchDirective {
   // This should be EventEmitter<SlashSearch[]>
   results: EventEmitter<Object[]> = new EventEmitter();
 

@@ -1,11 +1,11 @@
 import {Component} from 'angular2/core';
 import {NavigationService} from './navigation.service';
-import {NavigationSearch} from './navigation-search.directive';
+import {NavigationSearchDirective} from './navigation-search.directive';
 
 @Component({
   selector: 'navigation',
   providers: [ NavigationService ],
-  directives: [ NavigationSearch ],
+  directives: [ NavigationSearchDirective ],
   pipes: [ ],
   styles: [ require('./navigation.style.css') ],
   template:  require('./navigation.view.html')

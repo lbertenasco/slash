@@ -44,7 +44,9 @@ export class CardState {
 			.map((card) => {
 				return (cards) => {
 					return cards.map((c) => {
-            if(c.id == card.id) return Object.assign({}, c, {favorited: true});
+            if(c.id == card.id) return Object.assign({}, c, {
+              favorited: true, likes: c.likes + 1 || 1
+            });
             return c;
 					})
 				}
@@ -55,8 +57,8 @@ export class CardState {
 	addCard(card:Card):void {
 		this.create.next(card)
 	}
-  removeCard(card: Card): void {
-    this.delete.next(card);
+  likeCard(card: Card): void {
+    this.markAsFavorite.next(card);
   }
 
 }
