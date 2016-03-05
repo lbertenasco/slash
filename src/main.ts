@@ -23,21 +23,31 @@ if ('production' === process.env.ENV) {
  * App Component
  * our top level component that holds all of our components
  */
+import {Subject} from 'rxjs/Subject';
 import {App} from './app/app';
-import {CardState} from './app/card/card.state';
+import {buildAppState, initialState, dispatcher, state} from './app/app.state';
+import {initialAuthState} from './app/auth/auth.state';
+import {initialSlashState} from './app/slash/slash.state';
 
 /*
  * Bootstrap our Angular app with a top level component `App` and inject
  * our Services and Providers into Angular's dependency injection
  */
 export function main() {
+  let bootState = {
+    auth: initialAuthState,
+    slash: initialSlashState
+  };
+
   return browser.bootstrap(App, [
-    ...ENV_PROVIDERS,
-    ...HTTP_PROVIDERS,
-    ...ROUTER_PROVIDERS,
-    //CardState,
-  ])
-  .catch(err => console.error(err));
+        ...ENV_PROVIDERS,
+        ...HTTP_PROVIDERS,
+        ...ROUTER_PROVIDERS,
+        ngCore.provide(initialState, {useValue: bootState}),
+        ngCore.provide(dispatcher, {useValue: new Subject<any>(null)}),
+        ngCore.provide(state, {useFactory: buildAppState, deps: [new ngCore.Inject(initialState), new ngCore.Inject(dispatcher)]}),
+      ])
+  .catch(err => {console.error(err)});
 }
 
 

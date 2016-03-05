@@ -2,4 +2,7 @@
 
 <main class="main clearfix">
   <router-outlet></router-outlet>
+  <div *ngIf="user">
+    authenticated user={{user.nick}} (<a (click)="onLogoutClick()">Logout</a>)
+  </div>
 </main>
